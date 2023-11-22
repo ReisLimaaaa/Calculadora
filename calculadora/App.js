@@ -33,12 +33,15 @@ export default function App() {
       case '/': 
         setCurrentNumber((fistNumber / lastNumber).toString())
         return
+      case '%': 
+        setCurrentNumber(((fistNumber * lastNumber) /100).toString())
+        return
     }
   }
 
   function handleInput(buttonPressed){
     console.log(buttonPressed)
-    if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "*" | buttonPressed === "/" ){
+    if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "*" | buttonPressed === "/" | buttonPressed === "%" ){
       setCurrentNumber(currentNumber + " " + buttonPressed + " ")
       return
     }
@@ -55,6 +58,8 @@ export default function App() {
         calculator()
         return
       case '+/-':
+        return
+      case '%':
         return
     }
 
@@ -103,12 +108,13 @@ export default function App() {
       alignItems: 'center',
       justifyContent: 'center',
       minWidth: 90, 
-      minHeight: 0,
+      minHeight: 110,
       flex: 2,
     },
     textButton: {
       color: darkMode ? "#b5b7bb" : "#7c7c7c",
-      fontSize: 20,
+      fontSize: 30,
+      
     }, 
   });
 
